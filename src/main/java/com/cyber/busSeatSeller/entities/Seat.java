@@ -24,12 +24,12 @@ public class Seat {
 
     private double PriceToBuy;
 
-    private boolean IsAnonymous;
+    private boolean Anonymous;
 
-    @DateTimeFormat(style = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate LastSellAt;
 
-    private boolean IsVacant;
+    private boolean Vacant;
 
     @Deprecated
     protected Seat(){}
@@ -78,12 +78,12 @@ public class Seat {
         PriceToBuy = priceToBuy;
     }
 
-    public boolean isAnonymous() {
-        return IsAnonymous;
+    public boolean getAnonymous() {
+        return Anonymous;
     }
 
     public void setAnonymous(boolean anonymous) {
-        IsAnonymous = anonymous;
+        Anonymous = anonymous;
     }
 
     public LocalDate getLastSellAt() {
@@ -94,23 +94,23 @@ public class Seat {
         LastSellAt = lastSellAt;
     }
 
-    public boolean isVacant() {
-        return IsVacant;
+    public boolean getVacant() {
+        return Vacant;
     }
 
     public void setVacant(boolean vacant) {
-        IsVacant = vacant;
+        Vacant = vacant;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Seat seat = (Seat) o;
-        return Id == seat.Id && Number == seat.Number && Double.compare(SellPrice, seat.SellPrice) == 0 && Double.compare(PriceToBuy, seat.PriceToBuy) == 0 && IsAnonymous == seat.IsAnonymous && IsVacant == seat.IsVacant && Objects.equals(Owner, seat.Owner) && Objects.equals(LastSellAt, seat.LastSellAt);
+        return Id == seat.Id && Number == seat.Number && Double.compare(SellPrice, seat.SellPrice) == 0 && Double.compare(PriceToBuy, seat.PriceToBuy) == 0 && Anonymous == seat.Anonymous && Vacant == seat.Vacant && Objects.equals(Owner, seat.Owner) && Objects.equals(LastSellAt, seat.LastSellAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, Number, Owner, SellPrice, PriceToBuy, IsAnonymous, LastSellAt, IsVacant);
+        return Objects.hash(Id, Number, Owner, SellPrice, PriceToBuy, Anonymous, LastSellAt, Vacant);
     }
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editando Informações do Assento</title>
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous">
+</head>
+<body>
+  <form action="#" th:action="@{/bus/seats/saveEdit}" th:object="${seat}" method="POST">
+    <input type="hidden" id="id" th:field="*{id}">
+    <input type="hidden" id="number" th:field="*{number}">
+
+    <input type="text" th:field="*{owner}" placeholder="Nome do Proprietário" class="form-control mt-4 col-4">
+    <input type="number" step="0.01" th:field="*{sellPrice}" placeholder="Preço que foi comprado" class="form-control mt-4 col-4">
+    <span>Preço que foi comprado é o valor cobrado do proprietário definido acima. Esse valor só é exibido para você.</span>
+    <input type="number" step="0.01" th:field="*{priceToBuy}" placeholder="Preço de Recompra" class="form-control mt-4 col-4">
+    <span>Preço de Recompra é o preço do assento caso outra pessoa deseje comprar. Esse valor é exibido para todos.</span>
+    <br>
+    <input type="checkbox" th:field="*{anonymous}"> Esconder o nome do comprador para os outros.
+
+    <br>
+    <button type="submit" class="btn btn-info col-2">Salvar</button>
+    <br>
+    <a th:href="@{/bus/seats/{id}/defineVacant(id=${seat.id})}">Definir como vago</a>
+    <br>
+    <span><strong>Definir como vago</strong> vai retirar o proprietário e o valor que foi comprado.</span>
+  </form>
+</body>
+</html>

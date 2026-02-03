@@ -25,6 +25,7 @@
     <tr th:each="seat : ${seatsList}">
       <td th:text="${seat.number}"></td>
       <td>
+        <a th:href="@{/bus/seats/{id}(id=${seat.id})}" class="btn-primary">Editar</a>
       </td>
     </tr>
     </tbody>
