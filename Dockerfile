@@ -1,10 +1,10 @@
 # Estágio de Build
-FROM maven:3.9.4-eclipse-temurin-17 AS build
+FROM maven:3.9.4-eclipse-temurin-21 AS build
 COPY . .
 RUN mvn clean package -DskipTests
 
 # Estágio de Execução
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:21-jdk
 COPY --from=build /target/app.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
