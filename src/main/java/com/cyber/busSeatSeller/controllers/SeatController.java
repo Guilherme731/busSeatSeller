@@ -28,7 +28,7 @@ public class SeatController {
     @GetMapping("/")
     public String index(Model model){
         model.addAttribute("seatsList", seatRepository.findAll());
-        return "/index";
+        return "index";
     }
 
     @GetMapping("/bus/seats/{id}")
