@@ -25,6 +25,12 @@ public class SeatController {
         return "bus/seats/index";
     }
 
+    @GetMapping("/")
+    public String index(Model model){
+        model.addAttribute("seatsList", seatRepository.findAll());
+        return "/index";
+    }
+
     @GetMapping("/bus/seats/{id}")
     public String editSeat(@PathVariable("id") long seatId, Model model){
         Optional<Seat> optionalSeat = seatRepository.findById(seatId);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Visão Pública</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+    <a th:href="@{/bus/seats}" class="btn btn-primary btn-sm mb-3">Gerência</a>
+    <h1>Assentos do Ônibus</h1>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Número</th>
+            <th>Quem possui</th>
+            <th>Valor para compra</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="seat : ${seatsList}">
+            <td th:text="${seat.number}"></td>
+            <td th:text="${seat.owner}"></td>
+            <td th:text="${seat.priceToBuy}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
