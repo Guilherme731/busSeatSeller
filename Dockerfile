@@ -5,6 +5,6 @@ RUN mvn clean package -DskipTests
 
 # Estágio de Execução
 FROM eclipse-temurin:21-jdk
-COPY --from=build /target/app.jar app.jar
+COPY --from=build /target/busSeatSeller-0.0.1-SNAPSHOT.jar busSeatSeller-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "busSeatSeller-0.0.1-SNAPSHOT.jar"]
