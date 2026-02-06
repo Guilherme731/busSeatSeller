@@ -16,7 +16,7 @@ public class SeedDatabase implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        for(int i = 1; i <= 15; i++){
+        for(int i = 1; i <= 18; i++){
             Seat seat = new Seat(i);
             seat.setAnonymous(false);
             seat.setPriceToBuy(25);

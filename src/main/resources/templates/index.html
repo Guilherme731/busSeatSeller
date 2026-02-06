@@ -1,35 +1,158 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Visão Pública</title>
 
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>
+<style>
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        grid-column-gap: 30px;
+        grid-row-gap: 10px;
+        width: 400px;
+        border: 3px solid #000000;
+        padding: 4px;
+    }
+
+    .bus-map{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .parent a {
+        background-color: blue;
+        padding: 10px;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .div1 {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+
+    .div2 {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+
+    .div3 {
+        grid-area: 1 / 4 / 2 / 5;
+    }
+
+    .div4 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .div5 {
+        grid-area: 2 / 3 / 3 / 4;
+    }
+
+    .div6 {
+        grid-area: 2 / 4 / 3 / 5;
+    }
+
+    .div7 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+
+    .div8 {
+        grid-area: 3 / 3 / 4 / 4;
+    }
+
+    .div9 {
+        grid-area: 3 / 4 / 4 / 5;
+    }
+
+    .div10 {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+
+    .div11 {
+        grid-area: 4 / 3 / 5 / 4;
+    }
+
+    .div12 {
+        grid-area: 4 / 4 / 5 / 5;
+    }
+
+    .div13 {
+        grid-area: 5 / 1 / 6 / 2;
+    }
+
+    .div14 {
+        grid-area: 5 / 3 / 6 / 4;
+    }
+
+    .div15 {
+        grid-area: 5 / 4 / 6 / 5;
+    }
+
+    .div16 {
+        grid-area: 6 / 1 / 7 / 2;
+    }
+
+    .div17 {
+        grid-area: 6 / 3 / 7 / 4;
+    }
+
+    .div18 {
+        grid-area: 6 / 4 / 7 / 5;
+    }
+</style>
+
 <body>
-<div class="container my-2">
-    <a th:href="@{/bus/seats}" class="btn btn-primary btn-sm mb-3">Gerência</a>
-    <h1>Assentos do Ônibus</h1>
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>Número</th>
-            <th>Quem possui</th>
-            <th>Valor para compra</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="seat : ${seatsList}">
-            <td th:text="${seat.number}"></td>
-            <td th:text="${seat.owner}"></td>
-            <td th:text="${seat.priceToBuy}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="container my-2">
+        <div class="bus-map">
+            <div class="parent">
+                <a class="div1">1 </a>
+                <a class="div2">2 </a>
+                <a class="div3">3 </a>
+                <a class="div4">4 </a>
+                <a class="div5">5 </a>
+                <a class="div6">6 </a>
+                <a class="div7">7 </a>
+                <a class="div8">8 </a>
+                <a class="div9">9 </a>
+                <a class="div10">10 </a>
+                <a class="div11">11 </a>
+                <a class="div12">12 </a>
+                <a class="div13">13 </a>
+                <a class="div14">14 </a>
+                <a class="div15">15 </a>
+                <a class="div16">16 </a>
+                <a class="div17">17 </a>
+                <a class="div18">18 </a>
+            </div>
+        </div>
+
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Número</th>
+                    <th>Quem possui</th>
+                    <th>Valor para compra</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="seat : ${seatsList}">
+                    <td th:text="${seat.number}"></td>
+                    <td th:text="${seat.owner}"></td>
+                    <td th:text="${seat.priceToBuy}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
